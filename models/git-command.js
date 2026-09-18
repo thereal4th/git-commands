@@ -14,6 +14,19 @@ class GitCommand {
         /*
             Create logic here and run unit testing.
         */
+        const modified_files = this.working_directory.new_changes;
+
+        const files = Object.keys(modified_files)
+
+        const count = files.length;
+
+        let output = `You have ${count} change/s.`;
+
+        if(!count){
+            return output + "\n"
+        }
+
+        return output + "\n" + files.join("\n")
     }
 
     //Command: git add <filename/file directory/wildcard> 
